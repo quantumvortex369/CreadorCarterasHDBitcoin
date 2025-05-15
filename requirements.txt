@@ -1,0 +1,15 @@
+# Dependencias principales
+mnemonic>=0.20
+bip-utils>=2.7.0
+bitcoin-utils>=1.0.0
+
+# Interfaz gráfica
+Pillow>=10.0.0
+qrcode>=7.4.2
+ttkthemes>=3.2.2
+
+# Utilidades
+ecdsa>=0.18.0
+base58>=2.1.0
+bech32>=1.2.0
+python-dotenv>=1.0.0
