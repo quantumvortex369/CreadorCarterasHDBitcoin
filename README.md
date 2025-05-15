@@ -1,90 +1,136 @@
-# Creador de Carteras HD de Bitcoin (BIP39/BIP32)
+# 🚀 Creador de Carteras Bitcoin HD
 
-Este proyecto es una implementación de un generador de carteras HD (Jerárquicas Determinísticas) para Bitcoin, utilizando los estándares BIP39 (para la semilla mnemotécnica) y BIP32 (para la derivación de claves). La herramienta permite generar de manera segura claves privadas, públicas y direcciones Bitcoin asociadas a una semilla mnemotécnica, todo dentro de un entorno Python.
+![Python](https://img.shields.io/badge/Python-3.8+-blue.svg)
+![License](https://img.shields.io/badge/License-MIT-green.svg)
 
-Descripción
----------------
-Las carteras HD (Hierarchical Deterministic Wallets) son carteras que generan un árbol de claves derivadas de una semilla mnemotécnica, lo que permite a los usuarios generar direcciones y claves privadas de forma segura y predecible. Este sistema utiliza los estándares BIP39 y BIP32, que son ampliamente aceptados en la comunidad de Bitcoin, para asegurar que las claves y direcciones generadas sean compatibles con otros sistemas y plataformas de Bitcoin.
+Una aplicación de escritorio segura para generar y gestionar carteras Bitcoin HD (BIP-32/39/44) con soporte para múltiples tipos de direcciones.
 
-BIP39: Especifica cómo generar una semilla mnemotécnica que puede ser utilizada para recuperar una cartera.
+## 🔍 Vista Previa
 
-BIP32: Define un esquema jerárquico para derivar claves privadas y públicas a partir de una semilla de forma determinística.
+![Captura de pantalla de la aplicación](screenshot.png)
 
-Características
-----------------
-Generación de semilla mnemotécnica (12 palabras): Utiliza BIP39 para crear una semilla de recuperación fácil de recordar.
+## ✨ Características Principales
 
-Derivación de claves privadas y públicas: Usando BIP32, se derivan claves privadas y públicas a partir de la semilla mnemotécnica.
+- 🔐 Generación segura de frases mnemotécnicas (12/24 palabras)
+- 💼 Soporte para múltiples tipos de direcciones:
+  - 🔵 P2PKH (Legacy - Comienza con 1...)
+  - 🟠 P2SH (Nested SegWit - Comienza con 3...)
+  - 🟢 P2WPKH (Native SegWit - Comienza con bc1...)
+- 📋 Generación de códigos QR para direcciones
+- 📤 Exportación en múltiples formatos (JSON, texto, PDF, CSV)
+- 🎨 Interfaz intuitiva con temas claros/oscuros
+- 🔄 Validación integrada de direcciones y claves
+- 🔄 Soporte para múltiples idiomas
 
-Generación de direcciones Bitcoin: A partir de la clave pública generada, el script calcula la dirección Bitcoin en formato Base58.
+## 🛠️ Requisitos del Sistema
 
-Fácil de usar: Solo necesitas ejecutar el script para obtener tu semilla mnemotécnica, claves y dirección Bitcoin.
+- Python 3.8 o superior
+- pip (gestor de paquetes de Python)
+- Conexión a Internet (solo para verificar direcciones)
 
-Requisitos
-----------------
-Para ejecutar este proyecto, necesitas tener instalado Python y las siguientes librerías:
+## 📥 Instalación
 
-mnemonic: Para la generación de semillas mnemotécnicas BIP39.
+1. **Clona el repositorio**:
+   ```bash
+   git clone https://github.com/tu-usuario/creador-carteras-bitcoin-hd.git
+   cd creador-carteras-bitcoin-hd
+   ```
 
-bip32utils: Para la derivación de claves privadas y públicas BIP32.
+2. **Crea y activa un entorno virtual** (altamente recomendado):
+   ```bash
+   # Windows
+   python -m venv venv
+   .\venv\Scripts\activate
+   
+   # Linux/MacOS
+   python3 -m venv venv
+   source venv/bin/activate
+   ```
 
-base58: Para la conversión de la dirección Bitcoin al formato Base58.
+3. **Instala las dependencias**:
+   ```bash
+   pip install -r requirements.txt
+   ```
 
+## 🚀 Uso
 
+1. **Inicia la aplicación**:
+   ```bash
+   python CreadorCarterasBitcoinHD.py
+   ```
 
-Puedes instalar las dependencias con el siguiente comando:
-pip install mnemonic bip32utils base58
+2. **Genera una nueva semilla** o importa una existente
+3. **Selecciona el tipo de dirección** deseado
+4. **Genera direcciones** según sea necesario
+5. **Exporta** tus direcciones de forma segura
 
+## 🏗️ Estructura del Proyecto
 
-Instrucciones de uso
-----------------------
-1- Clona este repositorio en tu máquina local o descarga el archivo CreadorCarterasHD.py.
+```
+CreadorCarterasHDBitcoin-main/
+├── assets/                  # Recursos estáticos (imágenes, iconos, etc.)
+│   ├── images/             # Imágenes de la aplicación
+│   └── icons/              # Íconos de la aplicación
+├── dialogs/                 # Diálogos de la interfaz de usuario
+│   ├── __init__.py
+│   ├── network_settings_dialog.py
+│   └── preferences_ui.py
+├── ui/                      # Módulos de la interfaz de usuario
+│   ├── __init__.py
+│   ├── transaction_ui.py
+│   └── wallet_ui.py
+├── utils/                   # Utilidades y constantes
+│   ├── __init__.py
+│   ├── ui_utils.py
+│   ├── ui_utils_part2.py
+│   ├── ui_utils_part3.py
+│   └── ui_constants.py
+├── tests/                   # Pruebas unitarias
+│   ├── __init__.py
+│   └── test_wallet.py
+├── docs/                    # Documentación adicional
+│   └── README.md
+├── CreadorCarterasBitcoinHD.py  # Aplicación principal
+├── __main__.py              # Punto de entrada del paquete
+├── config.py                # Configuración de la aplicación
+├── crypto_constants.py      # Constantes criptográficas
+├── requirements.txt         # Dependencias del proyecto
+├── setup.py                 # Configuración del paquete
+├── README.md                # Este archivo
+├── CHANGELOG.md             # Registro de cambios
+├── LICENSE                  # Licencia del proyecto
+└── SECURITY.md             # Política de seguridad
+```
 
-2- Abre una terminal en la ubicación donde descargaste el archivo.
+## 🛠️ Tecnologías utilizadas
 
-3- Ejecuta el script con el siguiente comando:
-python CreadorCarterasHD.py
+- **Python 3.8+** - Lenguaje de programación
+- **Tkinter** - Interfaz gráfica
+- **bip32utils** - Derivación de claves HD
+- **mnemonic** - Generación de semillas BIP39
+- **qrcode** - Generación de códigos QR
+- **Pillow** - Procesamiento de imágenes para códigos QR
 
-4-El script generará lo siguiente:
+## 📚 Estándares implementados
 
-- Semilla mnemotécnica (12 palabras) que podrás usar para respaldar tu cartera.
+- **BIP-39**: Semillas mnemotécnicas para generación determinista
+- **BIP-32**: Carteras jerárquicas deterministas
+- **BIP-44**: Estructura de rutas para cuentas HD
+- **BIP-49**: Derivación para direcciones P2SH-P2WPKH (Nested SegWit)
+- **BIP-84**: Derivación para direcciones P2WPKH (Native SegWit)
 
-- Clave privada en formato hexadecimal, que te da acceso completo a tu cartera.
+## 🤝 Contribución
 
-- Clave pública en formato hexadecimal, que es utilizada para generar direcciones y recibir fondos.
+Las contribuciones son bienvenidas. Siéntete libre de abrir un issue o enviar un pull request.
 
-- Dirección Bitcoin en formato Base58 que podrás usar para recibir pagos.
+## 📄 Licencia
 
-  
+Este proyecto está bajo la Licencia MIT. Ver el archivo `LICENSE` para más detalles.
 
-Ejemplo de salida:
----------------------
+---
 
-Semilla generada: 
-    "wheat rent dwarf price shock health soap sort print whale taxi magic"
+Desarrollado con ❤️ para la comunidad Bitcoin
 
-Clave privada: 
-    "c0a1d1e44b607e83d9ecb214a83a84eaf27e51769b8e99e1bb1fe8d6c1986e71"
+**Importante**: La clave privada debe mantenerse en secreto. Si alguien tiene acceso a tu clave privada, podrá acceder a tus fondos.
 
-Clave pública: 
-    "0359c3c73cf474c7f0ad2b45a490a6d94d8d2fe3d7bfbebdd0b3897e7597f78f30"
-
-Dirección Bitcoin:
-    "1Lb4v4DzXH6n92Y2f5pk6h6o5Ra9U5gXBk"
-
-
-Explicación del código
-------------------------
-Generación de la semilla mnemotécnica: El script usa la librería mnemonic para generar una semilla BIP39 de 128 bits (12 palabras). Esta semilla es la base para la creación de todas las claves y direcciones asociadas a la cartera.
-
-Derivación de claves privadas y públicas: Utiliza la librería bip32utils para derivar claves privadas y públicas a partir de la semilla mnemotécnica. Se sigue el estándar BIP32, donde se usa la ruta m/44'/0'/0'/0 para generar claves según el protocolo de Bitcoin.
-
-Generación de la dirección Bitcoin: Se calcula la dirección Bitcoin a partir de la clave pública usando una combinación de SHA256 y RIPEMD160, seguida de un cálculo de checksum y la conversión del resultado en formato Base58.
-
-Seguridad
------------
-Respaldo de la semilla: La semilla mnemotécnica es la única forma de restaurar el acceso a la cartera. Asegúrate de guardarla de manera segura, fuera del alcance de terceros.
-
-Clave privada: La clave privada debe mantenerse en secreto. Si alguien tiene acceso a tu clave privada, podrá acceder a tus fondos.
-
-Dirección pública: La dirección pública puede compartirse sin riesgo. Esta dirección es solo para recibir pagos.
+**Nota**: La dirección pública puede compartirse sin riesgo. Esta dirección es solo para recibir pagos.
