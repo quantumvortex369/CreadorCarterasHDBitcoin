@@ -1,7 +1,6 @@
 # 🚀 Creador de Carteras Bitcoin HD
 
 ![Python](https://img.shields.io/badge/Python-3.8+-blue.svg)
-![License](https://img.shields.io/badge/License-MIT-green.svg)
 
 Una aplicación de escritorio segura para generar y gestionar carteras Bitcoin HD (BIP-32/39/44) con soporte para múltiples tipos de direcciones.
 
